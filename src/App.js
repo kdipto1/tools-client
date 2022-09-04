@@ -2,10 +2,10 @@ import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Login/Register";
-import SocialLogin from "./Components/Login/SocialLogin";
 import Home from "./Components/Home/Home";
 import Header from "./Components/Header/Header";
 import NotFound from "./Components/NotFound/NotFound";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+       <Footer/>
       <Toaster />
     </>
   );
