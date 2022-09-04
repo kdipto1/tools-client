@@ -3,8 +3,8 @@ import React from "react";
 import { InfinitySpin } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 const HomeTools = () => {
-  const { data: tools, isLoading } = useQuery(["homeTools"], () =>
-    fetch("http://localhost:5000/tools").then((res) => res.json())
+  const { data: tools, isLoading } = useQuery(["homeTools"],async () =>
+   await fetch("http://localhost:5000/tools").then((res) => res.json())
   );
   if (isLoading) {
     return (
@@ -51,11 +51,6 @@ const HomeTools = () => {
             </div>
           </div>
         ))}
-      </div>
-      <div className="mt-6 flex justify-center">
-        <Link to="/manageInventory" className="btn btn-primary btn-wide ">
-          Manage Inventory
-        </Link>
       </div>
     </section>
   );
