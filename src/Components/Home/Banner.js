@@ -17,6 +17,7 @@ const Banner = () => {
     cssEase: "linear",
     pauseOnHover: true,
     fade: true,
+    arrows: false
   };
   return (
     <section className="">
