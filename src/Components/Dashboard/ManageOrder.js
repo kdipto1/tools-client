@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Manageorders = () => {
+const ManageOrder = () => {
   return (
     <div>
       
@@ -8,4 +8,4 @@ const Manageorders = () => {
   );
 };
 
-export default Manageorders;
+export default ManageOrder;
