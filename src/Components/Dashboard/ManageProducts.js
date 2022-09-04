@@ -1,25 +1,27 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import React from 'react';
-import toast from 'react-hot-toast';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import React from "react";
+import toast from "react-hot-toast";
 
 const ManageProducts = () => {
   const {
     data: tools,
     isLoading,
     refetch,
-  } = useQuery(["manageTools"], () =>
-    fetch("https://server-12-12.herokuapp.com/manageTools", {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
+  } = useQuery(
+    ["manageTools"],
+    async () =>
+      await fetch("http://localhost:5000/manageTools", {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }).then((res) => res.json())
   );
   if (isLoading) {
-    return ;
+    return;
   }
   const handleProductDelete = async (id) => {
-    const url = `https://server-12-12.herokuapp.com/tools/${id}`;
+    const url = `http://localhost:5000/tools/${id}`;
     try {
       const { data } = await axios.delete(url, {
         headers: {

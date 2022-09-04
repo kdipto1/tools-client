@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import CheckoutForm from './CheckoutForm';
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import CheckoutForm from "./CheckoutForm";
 
-  const stripePromise = loadStripe(
+const stripePromise = loadStripe(
   "pk_test_51L0gtQCleCCJSf6N0qVeujBBIvuXiFVg1yxwXQdrOAXXpdKUo162kw118PF7rvgnWE49F14H702XyEkS3qYBYoSD004hIsjWXd"
 );
 const Payment = () => {
   const { id } = useParams();
-  const url = `https://server-12-12.herokuapp.com/userOrder/${id}`;
+  const url = `http://localhost:5000/userOrder/${id}`;
   const {
     data: order,
     isLoading,
@@ -24,7 +24,7 @@ const Payment = () => {
     }).then((res) => res.json())
   );
   if (isLoading) {
-    return ;
+    return;
   }
   return (
     <section className="">

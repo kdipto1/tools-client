@@ -1,47 +1,47 @@
-import axios from 'axios';
-import React from 'react';
-import toast from 'react-hot-toast';
+import axios from "axios";
+import React from "react";
+import toast from "react-hot-toast";
 
 const AddProduct = () => {
-   const handleSubmit = async (event) => {
-     event.preventDefault();
-     let name = event?.target.name.value;
-     let description = event?.target.description.value;
-     let image = event?.target.image.value;
-     let moq = parseInt(event?.target.moq.value);
-     let quantity = parseInt(event?.target.quantity.value);
-     let price = parseInt(event?.target.price.value);
-     console.log(name, image, description, moq, quantity, price);
-     const product = {
-       name: name,
-       image: image,
-       description: description,
-       moq: moq,
-       quantity: quantity,
-       price: price,
-     };
-     const url = "https://server-12-12.herokuapp.com/tools";
-     try {
-       const { data } = await axios.post(url, product, {
-         headers: {
-           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-         },
-       });
-       if (data) {
-         toast.success("Product added");
-         event.target.name.value = "";
-         event.target.description.value = "";
-         event.target.image.value = "";
-         event.target.moq.value = "";
-         event.target.quantity.value = "";
-         event.target.price.value = "";
-       }
-     } catch (error) {
-       console.log(error);
-     }
-   };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    let name = event?.target.name.value;
+    let description = event?.target.description.value;
+    let image = event?.target.image.value;
+    let moq = parseInt(event?.target.moq.value);
+    let quantity = parseInt(event?.target.quantity.value);
+    let price = parseInt(event?.target.price.value);
+    console.log(name, image, description, moq, quantity, price);
+    const product = {
+      name: name,
+      image: image,
+      description: description,
+      moq: moq,
+      quantity: quantity,
+      price: price,
+    };
+    const url = "http://localhost:5000/tools";
+    try {
+      const { data } = await axios.post(url, product, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
+      if (data) {
+        toast.success("Product added");
+        event.target.name.value = "";
+        event.target.description.value = "";
+        event.target.image.value = "";
+        event.target.moq.value = "";
+        event.target.quantity.value = "";
+        event.target.price.value = "";
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <section className='container'>
+    <section className="container">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Add Product</h2>

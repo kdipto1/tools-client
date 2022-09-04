@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
-
-const CheckoutForm = ({order}) => {
+const CheckoutForm = ({ order }) => {
   const [cardError, setCardError] = useState("");
   const [success, setSuccess] = useState("");
   const [processing, setProcessing] = useState(false);
@@ -15,7 +14,7 @@ const CheckoutForm = ({order}) => {
     order;
 
   useEffect(() => {
-    fetch("https://server-12-12.herokuapp.com/create-payment-intent", {
+    fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -70,7 +69,7 @@ const CheckoutForm = ({order}) => {
         order: _id,
         transactionId: paymentIntent?.id,
       };
-      fetch(`https://server-12-12.herokuapp.com/userOrders/${_id}`, {
+      fetch(`http://localhost:5000/userOrders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

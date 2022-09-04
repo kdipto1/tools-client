@@ -11,12 +11,14 @@ const MyProfile = () => {
     data: profile,
     isLoading,
     refetch,
-  } = useQuery(["userProfile"],async () =>
-    await fetch(`https://server-12-12.herokuapp.com/users?email=${user?.email}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    }).then((res) => res.json())
+  } = useQuery(
+    ["userProfile"],
+    async () =>
+      await fetch(`http://localhost:5000/users?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }).then((res) => res.json())
   );
   if (isLoading || loading) {
     return;
@@ -28,7 +30,7 @@ const MyProfile = () => {
     const education = event?.target.education.value;
     const phone = event?.target.phone.value;
     const linkedin = event?.target.linkedin.value;
-    const url = `https://server-12-12.herokuapp.com/users/${profile._id}`;
+    const url = `http://localhost:5000/users/${profile._id}`;
     axios
       .put(
         url,

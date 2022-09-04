@@ -1,8 +1,8 @@
-import axios from 'axios';
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import toast from 'react-hot-toast';
-import auth from '../../firebase.init';
+import axios from "axios";
+import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import toast from "react-hot-toast";
+import auth from "../../firebase.init";
 
 const AddReview = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -10,17 +10,15 @@ const AddReview = () => {
     return;
   }
   // console.log(user);
-  const handleReview = (event) => {
+  const handleReview = async (event) => {
     event.preventDefault();
     const comment = event.target.comment.value;
     const ratting = event.target.ratting.value;
     const email = user?.email;
     const name = user?.displayName;
-
-    // }
-    axios
+    await axios
       .post(
-        "https://server-12-12.herokuapp.com/review",
+        "http://localhost:5000/review",
         {
           comment: comment,
           ratting: ratting,
