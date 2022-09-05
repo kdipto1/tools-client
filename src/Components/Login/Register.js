@@ -74,6 +74,7 @@ const Register = () => {
       .catch(function (error) {
         console.log(error);
       });
+    console.log(data);
   };
   return (
     <section className="h-screen container mx-auto my-auto">
@@ -85,7 +86,7 @@ const Register = () => {
           <h2 className="card-title text-center inline-block">
             Please Register
           </h2>
-          <form onSubmit={() => handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <input
               type="text"
               placeholder="Your name"

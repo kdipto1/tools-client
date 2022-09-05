@@ -65,11 +65,11 @@ const Login = () => {
     <section className="h-screen container mx-auto my-auto">
       <div className="card bg-base-100 w-96 mx-auto shadow-xl image-full">
         <figure>
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+          {/* <img src="https://placeimg.com/400/225/arch" alt="Shoes" /> */}
         </figure>
         <div className="card-body mx-auto">
           <h2 className="card-title text-center inline-block">Please Login</h2>
-          <form onSubmit={() => handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <input
               type="email"
               ref={emailRef}

@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const HomeReviews = () => {
   const { data: reviews, isLoading } = useQuery(
     ["homeReviews"],
@@ -23,10 +25,10 @@ const HomeReviews = () => {
       <h2 className="mb-4 text-center font-bold text-4xl text-blue-400">
         Buyer Reviews
       </h2>
-      <Slider {...settings}>
+      <div className="flex flex-wrap">
         {reviews.map((review) => {
           return (
-            <div key={review._id} className="card w-60 bg-base-100 shadow-xl">
+            <div key={review._id} className="card m-6 w-60 bg-base-100 shadow-xl">
               <div className="card-body">
                 <div className="card-actions justify-center">
                   <h2 className="text-2xl text-cyan-400">
@@ -40,7 +42,7 @@ const HomeReviews = () => {
             </div>
           );
         })}
-      </Slider>
+      </div>
     </section>
   );
 };

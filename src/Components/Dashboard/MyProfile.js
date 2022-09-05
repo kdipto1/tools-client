@@ -62,7 +62,7 @@ const MyProfile = () => {
       });
   };
   return (
-    <section>
+    <section className="">
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="mx-auto card-title">Profile:</h2>
