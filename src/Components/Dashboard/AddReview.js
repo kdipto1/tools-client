@@ -10,13 +10,13 @@ const AddReview = () => {
     return;
   }
   // console.log(user);
-  const handleReview = async (event) => {
+  const handleReview = (event) => {
     event.preventDefault();
     const comment = event.target.comment.value;
     const ratting = event.target.ratting.value;
     const email = user?.email;
     const name = user?.displayName;
-    await axios
+    axios
       .post(
         "http://localhost:5000/review",
         {
@@ -48,7 +48,7 @@ const AddReview = () => {
       <div className="card w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Add review</h2>
-          <form onSubmit={handleReview}>
+          <form onSubmit={()=>handleReview()}>
             <label htmlFor="comment">Comment:</label>
             <input
               required

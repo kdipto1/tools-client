@@ -23,7 +23,7 @@ const MyProfile = () => {
   if (isLoading || loading) {
     return;
   }
-  const updateProfile = (event) => {
+  const updateProfile = async (event) => {
     event.preventDefault();
     const name = event?.target.name.value;
     const address = event?.target.address.value;
@@ -31,7 +31,7 @@ const MyProfile = () => {
     const phone = event?.target.phone.value;
     const linkedin = event?.target.linkedin.value;
     const url = `http://localhost:5000/users/${profile._id}`;
-    axios
+    await axios
       .put(
         url,
         {

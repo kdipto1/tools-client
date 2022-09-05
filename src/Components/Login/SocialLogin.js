@@ -1,9 +1,9 @@
-import axios from 'axios';
-import React, { useEffect } from 'react';
-import toast from 'react-hot-toast';
-import { useLocation, useNavigate } from 'react-router-dom';
+import axios from "axios";
+import React, { useEffect } from "react";
+import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthState, useSignInWithGoogle } from "react-firebase-hooks/auth";
-import auth from '../../firebase.init';
+import auth from "../../firebase.init";
 
 const SocialLogin = () => {
   const [user1, loading1] = useAuthState(auth);
@@ -11,16 +11,17 @@ const SocialLogin = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  useEffect(() => {
-    if (loading1) {
-      return;
-    }
-    if (user || user1) {
+  /* +++++++++++++++++++++++++++++++ */
+  if (loading1 && loading) {
+    return;
+  }
+  if (user1) {
+    const googleLogin = async () => {
       toast.success("Login Successful");
       // console.log(user1);
       const url = "http://localhost:5000/login";
-      axios
-        .post(url, { email: user?.email })
+      await axios
+        .post(url, { email: user1?.email })
         .then((response) => {
           const { data } = response;
           localStorage.setItem("accessToken", data.token);
@@ -32,16 +33,29 @@ const SocialLogin = () => {
           toast.error(error.message);
           console.log(error);
         });
-    }
-    if (loading) {
-      return;
-    }
-    if (error) {
-      toast.error(error?.message);
-    }
-  }, [from, user, navigate, error, loading,loading1,user1]);
+      const email = user1?.email;
+      const name = user1?.displayName;
+      const role = "user";
+      const url1 = "http://localhost:5000/users";
+      await axios
+        .post(url1, { name: name, email: email, role: role })
+        .then((response) => {
+          const { data } = response;
+          console.log(data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+    googleLogin();
+  }
+  if (error) {
+    toast.error(error?.message);
+  }
+  /* +++++++++++++++++++++++++++++++++++++ */
+
   return (
-    <div>
+    <section>
       <button
         onClick={() => signInWithGoogle()}
         className="btn  btn-primary w-full max-w-xs text-white"
@@ -49,7 +63,7 @@ const SocialLogin = () => {
         {" "}
         Continue With google
       </button>
-    </div>
+    </section>
   );
 };
 

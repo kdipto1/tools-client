@@ -31,7 +31,7 @@ const Register = () => {
     if (error || error1 || error2) {
       toast(error?.message || error1?.message);
     }
-    if (user || user1) {
+    if (user1) {
       const url = "http://localhost:5000/login";
       axios
         .post(url, { email: user1?.email })
@@ -65,7 +65,7 @@ const Register = () => {
     const name = data?.name;
     const role = "user";
     const url = "http://localhost:5000/users";
-    axios
+    await axios
       .post(url, { name: name, email: email, role: role })
       .then((response) => {
         const { data } = response;
@@ -77,13 +77,15 @@ const Register = () => {
   };
   return (
     <section className="h-screen container mx-auto my-auto">
-      <div class="card bg-base-100 w-96 mx-auto shadow-xl image-full">
+      <div className="card bg-base-100 w-96 mx-auto shadow-xl image-full">
         <figure>
           <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
         </figure>
-        <div class="card-body mx-auto">
-          <h2 class="card-title text-center inline-block">Please Register</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="card-body mx-auto">
+          <h2 className="card-title text-center inline-block">
+            Please Register
+          </h2>
+          <form onSubmit={() => handleSubmit(onSubmit)}>
             <input
               type="text"
               placeholder="Your name"

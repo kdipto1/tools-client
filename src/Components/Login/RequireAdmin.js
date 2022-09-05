@@ -6,9 +6,6 @@ import { Navigate, useLocation } from "react-router-dom";
 import auth from "../../firebase.init";
 import useAdmin from "../Hooks/useAdmin";
 
-
-
-
 const RequireAdmin = ({ children }) => {
   const [user, loading, error] = useAuthState(auth);
   const [admin, adminLoading] = useAdmin(user);
@@ -18,7 +15,14 @@ const RequireAdmin = ({ children }) => {
   }
   if (!user || !admin) {
     signOut(auth);
-    return <Navigate toast={toast("You are not admin")} to="/login" state={{ from: location }} replace />;
+    return (
+      <Navigate
+        toast={toast("You are not admin")}
+        to="/login"
+        state={{ from: location }}
+        replace
+      />
+    );
   }
   return children;
 };

@@ -1,13 +1,13 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, NavNavLink, Outlet } from "react-router-dom";
 import auth from "../../firebase.init";
 import useAdmin from "../Hooks/useAdmin";
 
 const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
   const [admin, adminLoading] = useAdmin(user);
-  if (loading || adminLoading) {
+  if (loading && adminLoading) {
     return;
   }
   return (

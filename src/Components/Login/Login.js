@@ -63,13 +63,13 @@ const Login = () => {
   };
   return (
     <section className="h-screen container mx-auto my-auto">
-      <div class="card bg-base-100 w-96 mx-auto shadow-xl image-full">
+      <div className="card bg-base-100 w-96 mx-auto shadow-xl image-full">
         <figure>
           <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
         </figure>
-        <div class="card-body mx-auto">
-          <h2 class="card-title text-center inline-block">Please Login</h2>
-          <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="card-body mx-auto">
+          <h2 className="card-title text-center inline-block">Please Login</h2>
+          <form onSubmit={() => handleSubmit(onSubmit)}>
             <input
               type="email"
               ref={emailRef}

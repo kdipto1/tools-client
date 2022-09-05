@@ -18,8 +18,8 @@ const MyOrders = () => {
       const url = `http://localhost:5000/userOrders?email=${email}`;
       try {
         const { data } = await axios.get(url, {
-          headers: {
-            authorization: `${user?.email} ${localStorage.getItem(
+          "headers": {
+            "authorization": `${user?.email} ${localStorage.getItem(
               "accessToken"
             )}`,
           },

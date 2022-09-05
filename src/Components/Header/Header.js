@@ -1,25 +1,27 @@
-import { signOut } from 'firebase/auth';
-import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { NavLink } from 'react-router-dom';
-import auth from '../../firebase.init';
+import { signOut } from "firebase/auth";
+import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { BsPersonCircle } from "react-icons/bs";
+import { Link, NavLink } from "react-router-dom";
+
+import auth from "../../firebase.init";
 
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
   if (loading) {
-    return ;
+    return;
   }
   const menuItems = (
     <>
       <li className="">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="lg:ml-4">
+      {/* <li className="lg:ml-4">
         <NavLink to="/blogs">Blogs</NavLink>
       </li>
       <li className="lg:ml-4">
         <NavLink to="/portfolio">Portfolio</NavLink>
-      </li>
+      </li> */}
       {user && (
         <li className="lg:ml-4">
           <NavLink to="/dashboard">Dashboard</NavLink>
@@ -27,6 +29,7 @@ const Header = () => {
       )}
     </>
   );
+  console.log(user);
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -65,20 +68,25 @@ const Header = () => {
         {user ? (
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost rounded-btn">
-              {/* <BsPersonCircle className="text-4xl" /> */}
+              <BsPersonCircle className="text-4xl" />
             </label>
             <ul
               tabIndex="0"
               className="menu dropdown-content p-2 shadow bg-base-100 rounded-box w-52 mt-4"
             >
               <li>
-                <NavLink
+                <button
+                  className="btn btn-primary"
                   onClick={() =>
-                    signOut(auth, localStorage.removeItem("accessToken"))
+                    signOut(
+                      auth,
+                      localStorage.removeItem("accessToken"),
+                      localStorage.removeItem("email")
+                    )
                   }
                 >
-                  Log out
-                </NavLink>
+                  LogOut
+                </button>
               </li>
             </ul>
           </div>
