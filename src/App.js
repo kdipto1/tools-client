@@ -18,6 +18,7 @@ import ManageOrder from "./Components/Dashboard/ManageOrder";
 import ManageProducts from "./Components/Dashboard/ManageProducts";
 import RequireAuth from "./Components/Login/RequireAuth";
 import RequireAdmin from "./Components/Login/RequireAdmin";
+import Contact from "./Components/Home/Contact";
 
 function App() {
   return (
@@ -80,6 +81,7 @@ function App() {
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/contact" element={<Contact/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

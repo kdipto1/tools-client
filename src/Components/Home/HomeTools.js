@@ -14,7 +14,7 @@ const HomeTools = () => {
     );
   }
   return (
-    <section className="mt-10 container mx-auto">
+    <section className="mt-10 container mx-auto ">
       <h2 className="text-4xl font-bold text-center ">Products</h2>
       <div className="mt-10 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {tools?.map((tool) => (

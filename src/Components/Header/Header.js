@@ -16,17 +16,15 @@ const Header = () => {
       <li className="">
         <NavLink to="/">Home</NavLink>
       </li>
-      {/* <li className="lg:ml-4">
-        <NavLink to="/blogs">Blogs</NavLink>
+      <li className="lg:ml-4">
+        <NavLink to="/dashboard">Dashboard</NavLink>
       </li>
       <li className="lg:ml-4">
+        <NavLink to="/contact">Contact Us</NavLink>
+      </li>
+      {/* <li className="lg:ml-4">
         <NavLink to="/portfolio">Portfolio</NavLink>
       </li> */}
-      {user && (
-        <li className="lg:ml-4">
-          <NavLink to="/dashboard">Dashboard</NavLink>
-        </li>
-      )}
     </>
   );
   // console.log(user);

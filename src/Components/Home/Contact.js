@@ -1,14 +1,16 @@
-import React from 'react';
-import banner1 from '../../Images/Banner/banner1.jpg';
+import React from "react";
+import bgCool from "../../Images/Banner/bgcool.png";
 const Contact = () => {
   return (
-    <section className="container mx-auto">
-      <div className="card bg-base-100 shadow-xl image-full">
+    <section className="container lg:p-11 mx-auto">
+      <div className="card bg-gradient-to-r from-yellow-400 to-blue-500">
         <figure>
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+          <img src={"bgCool"} alt="" />
         </figure>
         <div className="card-body mx-auto">
-          <h2 className="card-title inline-block text-center">Contact Us</h2>
+          <h2 className="card-title inline-block text-center text-white text-4xl">
+            Contact Us
+          </h2>
           <form onClick={(e) => e.preventDefault()}>
             <input
               type="text"
