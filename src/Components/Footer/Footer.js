@@ -25,7 +25,7 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </div>
       </footer>
-      <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+      <footer className="footer px-10 py-4 border-t bg-primary text-base-content border-base-300">
         <div className="items-center grid-flow-col">
           <svg
             width="24"

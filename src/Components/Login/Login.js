@@ -62,7 +62,7 @@ const Login = () => {
     }
   };
   return (
-    <section className="h-screen container mx-auto my-auto">
+    <section className="h-screen container mx-auto mt-20">
       <div className="card bg-base-100 w-96 mx-auto shadow-xl image-full">
         <figure>
           {/* <img src="https://placeimg.com/400/225/arch" alt="Shoes" /> */}

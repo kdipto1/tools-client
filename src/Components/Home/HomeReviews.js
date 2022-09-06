@@ -22,8 +22,8 @@ const HomeReviews = () => {
   };
   return (
     <section className="mt-16 pb-10 container mx-auto">
-      <h2 className="mb-4 text-center font-bold text-4xl text-blue-400">
-        Buyer Reviews
+      <h2 className="mb-4 text-center font-bold text-4xl ">
+        Testimonials
       </h2>
       <div className="flex flex-wrap">
         {reviews.map((review) => {

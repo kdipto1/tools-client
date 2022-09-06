@@ -77,10 +77,10 @@ const Register = () => {
     console.log(data);
   };
   return (
-    <section className="h-screen container mx-auto my-auto">
+    <section className="h-screen container mx-auto mt-16">
       <div className="card bg-base-100 w-96 mx-auto shadow-xl image-full">
         <figure>
-          <img src="https://placeimg.com/400/225/arch" alt="Shoes" />
+          <img src="" alt="" />
         </figure>
         <div className="card-body mx-auto">
           <h2 className="card-title text-center inline-block">

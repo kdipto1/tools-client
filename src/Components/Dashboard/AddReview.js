@@ -45,7 +45,7 @@ const AddReview = () => {
   };
   return (
     <section>
-      <div className="card w-96 bg-base-100 shadow-xl">
+      <div className="card mx-auto mt-10 w-96 bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title">Add review</h2>
           <form onSubmit={handleReview}>
