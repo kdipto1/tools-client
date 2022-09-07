@@ -18,7 +18,7 @@ const AddReview = () => {
     const name = user?.displayName;
     axios
       .post(
-        "http://localhost:5000/review",
+        "https://audiobit.herokuapp.com/review",
         {
           comment: comment,
           ratting: ratting,

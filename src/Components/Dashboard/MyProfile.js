@@ -3,6 +3,7 @@ import axios from "axios";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
+import { InfinitySpin } from "react-loader-spinner";
 import auth from "../../firebase.init";
 
 const MyProfile = () => {
@@ -14,14 +15,18 @@ const MyProfile = () => {
   } = useQuery(
     ["userProfile"],
     async () =>
-      await fetch(`http://localhost:5000/users?email=${user?.email}`, {
+      await fetch(`https://audiobit.herokuapp.com/users?email=${user?.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       }).then((res) => res.json())
   );
   if (isLoading || loading) {
-    return;
+    return (
+      <div className="flex justify-center my-10">
+        <InfinitySpin width="200" color="#4fa94d" />
+      </div>
+    );
   }
   const updateProfile = async (event) => {
     event.preventDefault();
@@ -30,7 +35,7 @@ const MyProfile = () => {
     const education = event?.target.education.value;
     const phone = event?.target.phone.value;
     const linkedin = event?.target.linkedin.value;
-    const url = `http://localhost:5000/users/${profile._id}`;
+    const url = `https://audiobit.herokuapp.com/users/${profile._id}`;
     await axios
       .put(
         url,

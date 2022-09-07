@@ -4,13 +4,14 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import CheckoutForm from "./CheckoutForm";
+import { InfinitySpin } from "react-loader-spinner";
 
 const stripePromise = loadStripe(
   "pk_test_51L0gtQCleCCJSf6N0qVeujBBIvuXiFVg1yxwXQdrOAXXpdKUo162kw118PF7rvgnWE49F14H702XyEkS3qYBYoSD004hIsjWXd"
 );
 const Payment = () => {
   const { id } = useParams();
-  const url = `http://localhost:5000/userOrder/${id}`;
+  const url = `https://audiobit.herokuapp.com/userOrder/${id}`;
   const {
     data: order,
     isLoading,
@@ -24,7 +25,11 @@ const Payment = () => {
     }).then((res) => res.json())
   );
   if (isLoading) {
-    return;
+    return (
+      <div className="flex justify-center my-10">
+        <InfinitySpin width="200" color="#4fa94d" />
+      </div>
+    );
   }
   return (
     <section className="">

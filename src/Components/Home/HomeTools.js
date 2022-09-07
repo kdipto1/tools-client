@@ -6,7 +6,9 @@ const HomeTools = () => {
   const { data: tools, isLoading } = useQuery(
     ["homeTools"],
     async () =>
-      await fetch("http://localhost:5000/tools").then((res) => res.json())
+      await fetch("https://audiobit.herokuapp.com/tools").then((res) =>
+        res.json()
+      )
   );
   if (isLoading) {
     return (

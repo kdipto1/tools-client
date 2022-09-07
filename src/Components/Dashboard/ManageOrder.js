@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { InfinitySpin } from "react-loader-spinner";
 import auth from "../../firebase.init";
 
 const ManageOrder = () => {
@@ -13,20 +14,24 @@ const ManageOrder = () => {
   } = useQuery(
     ["allOrder"],
     async () =>
-      await fetch("http://localhost:5000/orders", {
+      await fetch("https://audiobit.herokuapp.com/orders", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       }).then((res) => res.json())
   );
   if (loading || isLoading) {
-    return;
+    return (
+      <div className="flex justify-center my-10">
+        <InfinitySpin width="200" color="#4fa94d" />
+      </div>
+    );
   }
   const handleShipping = async (id) => {
     const shipping = "shipped";
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/orders/${id}`,
+        `https://audiobit.herokuapp.com/orders/${id}`,
         {
           shipping: shipping,
         },

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import toast from "react-hot-toast";
+import { InfinitySpin } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
 
@@ -11,11 +12,15 @@ const MyOrders = () => {
   const [cancel, setCancel] = useState();
   useEffect(() => {
     if (loading) {
-      return;
+      return (
+        <div className="flex justify-center my-10">
+          <InfinitySpin width="200" color="#4fa94d" />
+        </div>
+      );
     }
     const getMyOrders = async () => {
       const email = user?.email;
-      const url = `http://localhost:5000/userOrders?email=${email}`;
+      const url = `https://audiobit.herokuapp.com/userOrders?email=${email}`;
       try {
         const { data } = await axios.get(url, {
           headers: {
@@ -33,7 +38,7 @@ const MyOrders = () => {
     getMyOrders();
   }, [loading, user?.email, cancel]);
   const handleDelete = async (id) => {
-    const url = `http://localhost:5000/userOrders/${id}`;
+    const url = `https://audiobit.herokuapp.com/userOrders/${id}`;
     try {
       const { data } = await axios.delete(url, {
         headers: {

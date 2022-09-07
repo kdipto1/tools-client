@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
+import { InfinitySpin } from "react-loader-spinner";
 
 const MakeAdmin = () => {
   const {
@@ -8,18 +9,22 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery(["getUsers"], () =>
-    fetch("http://localhost:5000/makeAdmin", {
+    fetch("https://audiobit.herokuapp.com/makeAdmin", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
     }).then((res) => res.json())
   );
   if (isLoading) {
-    return;
+    return (
+      <div className="flex justify-center my-10">
+        <InfinitySpin width="200" color="#4fa94d" />
+      </div>
+    );
   }
   const makeAdmin = async (id) => {
     const role = "admin";
-    const url = `http://localhost:5000/makeAdmin/${id}`;
+    const url = `https://audiobit.herokuapp.com/makeAdmin/${id}`;
     try {
       const { data } = await axios.post(
         url,

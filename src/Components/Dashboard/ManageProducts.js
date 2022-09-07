@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import toast from "react-hot-toast";
+import { InfinitySpin } from "react-loader-spinner";
 
 const ManageProducts = () => {
   const {
@@ -9,19 +10,23 @@ const ManageProducts = () => {
     isLoading,
     refetch,
   } = useQuery(
-    ["manageTools"],
+    ["manageProducts"],
     async () =>
-      await fetch("http://localhost:5000/manageTools", {
+      await fetch("https://audiobit.herokuapp.com/manageTools", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
       }).then((res) => res.json())
   );
   if (isLoading) {
-    return;
+    return (
+      <div className="flex justify-center my-10">
+        <InfinitySpin width="200" color="#4fa94d" />
+      </div>
+    );
   }
   const handleProductDelete = async (id) => {
-    const url = `http://localhost:5000/tools/${id}`;
+    const url = `https://audiobit.herokuapp.com/tools/${id}`;
     try {
       const { data } = await axios.delete(url, {
         headers: {

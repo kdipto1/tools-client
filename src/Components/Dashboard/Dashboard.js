@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { NavLink, NavNavLink, Outlet } from "react-router-dom";
+import { InfinitySpin } from "react-loader-spinner";
+import { NavLink, Outlet } from "react-router-dom";
 import auth from "../../firebase.init";
 import useAdmin from "../Hooks/useAdmin";
 
@@ -8,7 +9,11 @@ const Dashboard = () => {
   const [user, loading, error] = useAuthState(auth);
   const [admin, adminLoading] = useAdmin(user);
   if (loading && adminLoading) {
-    return;
+    return (
+      <div className="flex justify-center my-10">
+        <InfinitySpin width="200" color="#4fa94d" />
+      </div>
+    );
   }
   return (
     <section className="drawer drawer-mobile">
