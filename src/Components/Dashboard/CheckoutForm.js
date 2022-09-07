@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
     order;
 
   useEffect(() => {
-    fetch("https://audiobit.herokuapp.com/create-payment-intent", {
+    fetch("http://localhost:5000/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -69,7 +69,7 @@ const CheckoutForm = ({ order }) => {
         order: _id,
         transactionId: paymentIntent?.id,
       };
-      fetch(`https://audiobit.herokuapp.com/userOrders/${_id}`, {
+      fetch(`http://localhost:5000/userOrders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

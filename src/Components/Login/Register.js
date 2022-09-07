@@ -32,7 +32,7 @@ const Register = () => {
       toast(error?.message || error1?.message);
     }
     if (user1) {
-      const url = "https://audiobit.herokuapp.com/login";
+      const url = "http://localhost:5000/login";
       axios
         .post(url, { email: user1?.email })
         .then((response) => {
@@ -64,7 +64,7 @@ const Register = () => {
     const email = data?.email;
     const name = data?.name;
     const role = "user";
-    const url = `https://audiobit.herokuapp.com/user/${email}`;
+    const url = `http://localhost:5000/user/${email}`;
     await axios
       .put(url, { name: name, email: email, role: role })
       .then((response) => {

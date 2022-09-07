@@ -13,7 +13,7 @@ const RequireAuth = ({children}) => {
   if (!user)
     return (
       <Navigate
-        toast={toast("You need to login to visit this page")}
+        toast={toast("You need to login to visit this page",{duration:180})}
         to="/login"
         state={{ from: location }}
         replace

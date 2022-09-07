@@ -6,9 +6,7 @@ const Blogs = () => {
   const { data: blogs, isLoading } = useQuery(
     ["blogs"],
     async () =>
-      await fetch("https://audiobit.herokuapp.com/blogs").then((res) =>
-        res.json()
-      )
+      await fetch("http://localhost:5000/blogs").then((res) => res.json())
   );
   if (isLoading) {
     return (

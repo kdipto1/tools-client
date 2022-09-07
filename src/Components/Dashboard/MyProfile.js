@@ -14,7 +14,7 @@ const MyProfile = () => {
   } = useQuery(
     ["userProfile"],
     async () =>
-      await fetch(`https://audiobit.herokuapp.com/users?email=${user?.email}`, {
+      await fetch(`http://localhost:5000/users?email=${user?.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -30,7 +30,7 @@ const MyProfile = () => {
     const education = event?.target.education.value;
     const phone = event?.target.phone.value;
     const linkedin = event?.target.linkedin.value;
-    const url = `https://audiobit.herokuapp.com/users/${profile._id}`;
+    const url = `http://localhost:5000/users/${profile._id}`;
     await axios
       .put(
         url,

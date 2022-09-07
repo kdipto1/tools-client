@@ -59,7 +59,7 @@ const Header = () => {
           </ul>
         </div>
         <NavLink to="/" className="btn btn-ghost normal-case font-bold text-xl">
-          AudioBit
+          AudioBee
         </NavLink>
       </div>
       <div className="navbar-center hidden lg:flex">

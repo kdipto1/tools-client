@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery(["getUsers"], () =>
-    fetch("https://audiobit.herokuapp.com/makeAdmin", {
+    fetch("http://localhost:5000/makeAdmin", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -19,7 +19,7 @@ const MakeAdmin = () => {
   }
   const makeAdmin = async (id) => {
     const role = "admin";
-    const url = `https://audiobit.herokuapp.com/makeAdmin/${id}`;
+    const url = `http://localhost:5000/makeAdmin/${id}`;
     try {
       const { data } = await axios.post(
         url,

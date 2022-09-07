@@ -13,7 +13,7 @@ const ManageOrder = () => {
   } = useQuery(
     ["allOrder"],
     async () =>
-      await fetch("https://audiobit.herokuapp.com/orders", {
+      await fetch("http://localhost:5000/orders", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -26,7 +26,7 @@ const ManageOrder = () => {
     const shipping = "shipped";
     try {
       const { data } = await axios.put(
-        `https://audiobit.herokuapp.com/orders/${id}`,
+        `http://localhost:5000/orders/${id}`,
         {
           shipping: shipping,
         },
