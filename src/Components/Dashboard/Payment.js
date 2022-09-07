@@ -10,7 +10,7 @@ const stripePromise = loadStripe(
 );
 const Payment = () => {
   const { id } = useParams();
-  const url = `http://localhost:5000/userOrder/${id}`;
+  const url = `https://audiobit.herokuapp.com/userOrder/${id}`;
   const {
     data: order,
     isLoading,

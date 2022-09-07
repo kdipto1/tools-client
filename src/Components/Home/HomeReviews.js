@@ -8,7 +8,9 @@ const HomeReviews = () => {
   const { data: reviews, isLoading } = useQuery(
     ["homeReviews"],
     async () =>
-      await fetch("http://localhost:5000/review").then((res) => res.json())
+      await fetch("https://audiobit.herokuapp.com/review").then((res) =>
+        res.json()
+      )
   );
   if (isLoading) {
     return;
@@ -22,13 +24,14 @@ const HomeReviews = () => {
   };
   return (
     <section className="mt-16 pb-10 container mx-auto">
-      <h2 className="mb-4 text-center font-bold text-4xl ">
-        Testimonials
-      </h2>
+      <h2 className="mb-4 text-center font-bold text-4xl ">Testimonials</h2>
       <div className="flex flex-wrap">
         {reviews.map((review) => {
           return (
-            <div key={review._id} className="card m-6 w-60 bg-base-100 shadow-xl">
+            <div
+              key={review._id}
+              className="card m-6 w-60 bg-base-100 shadow-xl"
+            >
               <div className="card-body">
                 <div className="card-actions justify-center">
                   <h2 className="text-2xl text-cyan-400">

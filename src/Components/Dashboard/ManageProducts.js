@@ -11,7 +11,7 @@ const ManageProducts = () => {
   } = useQuery(
     ["manageTools"],
     async () =>
-      await fetch("http://localhost:5000/manageTools", {
+      await fetch("https://audiobit.herokuapp.com/manageTools", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -21,7 +21,7 @@ const ManageProducts = () => {
     return;
   }
   const handleProductDelete = async (id) => {
-    const url = `http://localhost:5000/tools/${id}`;
+    const url = `https://audiobit.herokuapp.com/tools/${id}`;
     try {
       const { data } = await axios.delete(url, {
         headers: {

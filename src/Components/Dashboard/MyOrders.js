@@ -15,11 +15,11 @@ const MyOrders = () => {
     }
     const getMyOrders = async () => {
       const email = user?.email;
-      const url = `http://localhost:5000/userOrders?email=${email}`;
+      const url = `https://audiobit.herokuapp.com/userOrders?email=${email}`;
       try {
         const { data } = await axios.get(url, {
-          "headers": {
-            "authorization": `${user?.email} ${localStorage.getItem(
+          headers: {
+            authorization: `${user?.email} ${localStorage.getItem(
               "accessToken"
             )}`,
           },
@@ -33,7 +33,7 @@ const MyOrders = () => {
     getMyOrders();
   }, [loading, user?.email, cancel]);
   const handleDelete = async (id) => {
-    const url = `http://localhost:5000/userOrders/${id}`;
+    const url = `https://audiobit.herokuapp.com/userOrders/${id}`;
     try {
       const { data } = await axios.delete(url, {
         headers: {

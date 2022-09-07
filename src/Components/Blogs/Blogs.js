@@ -6,7 +6,9 @@ const Blogs = () => {
   const { data: blogs, isLoading } = useQuery(
     ["blogs"],
     async () =>
-      await fetch("http://localhost:5000/blogs").then((res) => res.json())
+      await fetch("https://audiobit.herokuapp.com/blogs").then((res) =>
+        res.json()
+      )
   );
   if (isLoading) {
     return (
@@ -29,7 +31,7 @@ const Blogs = () => {
             </figure>
             <div className="card-body">
               <h2 className="card-title">{blog?.name}</h2>
-              <p>{blog?.description.slice(0,250)}...</p>
+              <p>{blog?.description.slice(0, 250)}...</p>
               <div className="card-actions justify-end">
                 <button className="btn btn-primary">Full Article</button>
               </div>

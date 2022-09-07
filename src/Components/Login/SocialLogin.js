@@ -19,7 +19,7 @@ const SocialLogin = () => {
     const googleLogin = async () => {
       toast.success("Login Successful");
       // console.log(user1);
-      const url = "http://localhost:5000/login";
+      const url = "https://audiobit.herokuapp.com/login";
       await axios
         .post(url, { email: user1?.email })
         .then((response) => {
@@ -36,9 +36,9 @@ const SocialLogin = () => {
       const email = user1?.email;
       const name = user1?.displayName;
       const role = "user";
-      const url1 = `http://localhost:5000/users/${email}`;
+      const url1 = `https://audiobit.herokuapp.com/user/${email}`;
       await axios
-        .post(url1, { name: name, email: email, role: role })
+        .put(url1, { name: name, email: email, role: role })
         .then((response) => {
           const { data } = response;
           console.log(data);
