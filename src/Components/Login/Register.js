@@ -64,7 +64,7 @@ const Register = () => {
     const email = data?.email;
     const name = data?.name;
     const role = "user";
-    const url = "http://localhost:5000/users";
+    const url = `http://localhost:5000/users/${email}`;
     await axios
       .post(url, { name: name, email: email, role: role })
       .then((response) => {

@@ -36,7 +36,7 @@ const SocialLogin = () => {
       const email = user1?.email;
       const name = user1?.displayName;
       const role = "user";
-      const url1 = "http://localhost:5000/users";
+      const url1 = `http://localhost:5000/users/${email}`;
       await axios
         .post(url1, { name: name, email: email, role: role })
         .then((response) => {
@@ -57,7 +57,7 @@ const SocialLogin = () => {
   return (
     <section>
       <button
-        onClick={()=>signInWithGoogle()}
+        onClick={() => signInWithGoogle()}
         className="btn  btn-primary w-full max-w-xs text-white"
       >
         {" "}

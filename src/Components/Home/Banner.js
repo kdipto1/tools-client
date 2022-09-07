@@ -22,22 +22,24 @@ const Banner = () => {
   return (
     <section className="">
       <Slider {...settings}>
-        <div className="h-4/5">
+        <div className="">
           <div
             style={{
               backgroundImage: `url(${banner1})`,
             }}
-            className="hero-overlay hero h-4/5 bg-opacity-60"
+            className="hero-overlay hero  "
           >
-            <div className="hero-content text-center text-neutral-content">
+            <div
+              style={{ height: "85vh" }}
+              className="hero-content  text-center text-neutral-content"
+            >
               <div className="max-w-md">
-                <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-                <p className="mb-5">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button className="btn btn-primary">Get Started</button>
+                <h1 className="mb-5 text-5xl font-bold text-white">
+                  Best Audio Accessories You Can Get
+                </h1>
+                <a href="#products" className="btn btn-primary">
+                  Products
+                </a>
               </div>
             </div>
           </div>
@@ -50,7 +52,10 @@ const Banner = () => {
             }}
             className="hero-overlay hero h-4/5 bg-opacity-60"
           >
-            <div className="hero-content text-center text-neutral-content">
+            <div
+              style={{ height: "85vh" }}
+              className="hero-content text-center text-neutral-content"
+            >
               <div className="max-w-md">
                 <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
                 <p className="mb-5">
