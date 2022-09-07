@@ -9,7 +9,7 @@ const HomeServices = () => {
       <div className="grid lg:grid-cols-3 gap-10">
         <div className="card w-80 mx-auto card-compact bg-base-100 shadow-xl">
           <figure>
-            <img src={verified} alt="Shoes" />
+            <img className="h-48" src={verified} alt="Shoes" />
           </figure>
           <div className="card-body">
             <h2 className="card-title mx-auto">Verified products!</h2>
@@ -18,7 +18,7 @@ const HomeServices = () => {
         {/*  */}
         <div className="card w-80 my-auto mx-auto card-compact bg-base-100 shadow-xl">
           <figure>
-            <img className="" src={fast} alt="Shoes" />
+            <img className="h-48" src={fast} alt="Shoes" />
           </figure>
           <div className="card-body">
             <h2 className="card-title mx-auto">Fast delivery!</h2>
@@ -27,7 +27,7 @@ const HomeServices = () => {
         {/*  */}
         <div className="card w-80 mx-auto card-compact bg-base-100 shadow-xl">
           <figure>
-            <img src={stripe} alt="Shoes" />
+            <img className="h-48" src={stripe} alt="Shoes" />
           </figure>
           <div className="card-body">
             <h2 className="card-title mx-auto">Secure payment with stripe!</h2>

@@ -22,6 +22,9 @@ const Header = () => {
       <li className="lg:ml-4">
         <NavLink to="/contact">Contact Us</NavLink>
       </li>
+      <li className="lg:ml-4">
+        <NavLink to="/blogs">Blogs</NavLink>
+      </li>
       {/* <li className="lg:ml-4">
         <NavLink to="/portfolio">Portfolio</NavLink>
       </li> */}

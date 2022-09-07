@@ -19,6 +19,7 @@ import ManageProducts from "./Components/Dashboard/ManageProducts";
 import RequireAuth from "./Components/Login/RequireAuth";
 import RequireAdmin from "./Components/Login/RequireAdmin";
 import Contact from "./Components/Home/Contact";
+import Blogs from "./Components/Blogs/Blogs";
 
 function App() {
   return (
@@ -82,6 +83,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/blogs" element={<Blogs/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
