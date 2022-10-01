@@ -14,7 +14,7 @@ const CheckoutForm = ({ order }) => {
     order;
 
   useEffect(() => {
-    fetch("https://audiobit.herokuapp.com/create-payment-intent", {
+    fetch("https://audiobee.onrender.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -69,7 +69,7 @@ const CheckoutForm = ({ order }) => {
         order: _id,
         transactionId: paymentIntent?.id,
       };
-      fetch(`https://audiobit.herokuapp.com/userOrders/${_id}`, {
+      fetch(`https://audiobee.onrender.com/userOrders/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

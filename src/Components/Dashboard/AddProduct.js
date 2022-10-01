@@ -20,7 +20,7 @@ const AddProduct = () => {
       quantity: quantity,
       price: price,
     };
-    const url = "https://audiobit.herokuapp.com/tools";
+    const url = "https://audiobee.onrender.com/tools";
     try {
       const { data } = await axios.post(url, product, {
         headers: {

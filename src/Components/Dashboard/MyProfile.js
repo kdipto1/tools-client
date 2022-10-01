@@ -7,7 +7,7 @@ import { InfinitySpin } from "react-loader-spinner";
 import auth from "../../firebase.init";
 
 const MyProfile = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const {
     data: profile,
     isLoading,
@@ -15,7 +15,7 @@ const MyProfile = () => {
   } = useQuery(
     ["userProfile"],
     async () =>
-      await fetch(`https://audiobit.herokuapp.com/users?email=${user?.email}`, {
+      await fetch(`https://audiobee.onrender.com/users?email=${user?.email}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -35,7 +35,7 @@ const MyProfile = () => {
     const education = event?.target.education.value;
     const phone = event?.target.phone.value;
     const linkedin = event?.target.linkedin.value;
-    const url = `https://audiobit.herokuapp.com/users/${profile._id}`;
+    const url = `https://audiobee.onrender.com/users/${profile._id}`;
     await axios
       .put(
         url,

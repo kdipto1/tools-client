@@ -8,7 +8,7 @@ const HomeReviews = () => {
   const { data: reviews, isLoading } = useQuery(
     ["homeReviews"],
     async () =>
-      await fetch("https://audiobit.herokuapp.com/review").then((res) =>
+      await fetch("https://audiobee.onrender.com/review").then((res) =>
         res.json()
       )
   );

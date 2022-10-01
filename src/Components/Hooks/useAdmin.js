@@ -6,7 +6,7 @@ const useAdmin = (user) => {
   useEffect(() => {
     const email = user?.email;
     if (email) {
-      fetch(`https://audiobit.herokuapp.com/users?email=${email}`, {
+      fetch(`https://audiobee.onrender.com/users?email=${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

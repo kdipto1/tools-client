@@ -34,7 +34,7 @@ const Login = () => {
       toast(error?.message || error1?.message);
     }
     if (user || user1) {
-      const url = "https://audiobit.herokuapp.com/login";
+      const url = "https://audiobee.onrender.com/login";
       axios
         .post(url, { email: user1?.email })
         .then((response) => {
@@ -51,6 +51,19 @@ const Login = () => {
   const onSubmit = async (data) => {
     // console.log(data);
     await signInWithEmailAndPassword(data?.email, data?.password);
+    const email = data?.email;
+    const name = data?.name;
+    const role = "user";
+    const url = `https://audiobee.onrender.com/user/${email}`;
+    await axios
+      .put(url, { name: name, email: email, role: role })
+      .then((response) => {
+        const { data } = response;
+        console.log(data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   const resetPassword = async () => {
     const email = emailRef?.current?.value;

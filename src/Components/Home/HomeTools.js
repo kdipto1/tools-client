@@ -6,7 +6,7 @@ const HomeTools = () => {
   const { data: tools, isLoading } = useQuery(
     ["homeTools"],
     async () =>
-      await fetch("https://audiobit.herokuapp.com/tools").then((res) =>
+      await fetch("https://audiobee.onrender.com/tools").then((res) =>
         res.json()
       )
   );
