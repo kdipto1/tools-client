@@ -69,7 +69,7 @@ const Header = () => {
         {user ? (
           <div className="dropdown dropdown-end">
             <label tabIndex="0" className="btn btn-ghost rounded-btn">
-              <BsPersonCircle className="text-4xl" />
+              <BsPersonCircle className="text-4xl mr-1" />
               {user && user.displayName}
             </label>
             <ul

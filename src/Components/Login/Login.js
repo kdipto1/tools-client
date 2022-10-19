@@ -48,7 +48,7 @@ const Login = () => {
         });
     }
   }, [error, from, loading, user, navigate, error1, user1, loading1]);
-  const onSubmit = async (data) => {
+  const onSubmit = async (data, event) => {
     // console.log(data);
     await signInWithEmailAndPassword(data?.email, data?.password);
     const email = data?.email;
@@ -59,6 +59,7 @@ const Login = () => {
       .put(url, { name: name, email: email, role: role })
       .then((response) => {
         const { data } = response;
+        event.currentTarget.disabled = true;
         console.log(data);
       })
       .catch(function (error) {
@@ -144,7 +145,9 @@ const Login = () => {
           </p>
           <p>
             Forgot password?,{" "}
-            <button onClick={resetPassword} className="text-blue-600">Reset password</button>{" "}
+            <button onClick={resetPassword} className="text-blue-600">
+              Reset password
+            </button>{" "}
           </p>
           <div className="mx-auto divider">OR</div>
           <SocialLogin className="btn  btn-primary w-full max-w-xs text-white" />

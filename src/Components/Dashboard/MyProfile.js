@@ -13,7 +13,7 @@ const MyProfile = () => {
     isLoading,
     refetch,
   } = useQuery(
-    ["userProfile"],
+    ["userProfileAudioBee"],
     async () =>
       await fetch(`https://audiobee.onrender.com/users?email=${user?.email}`, {
         headers: {
