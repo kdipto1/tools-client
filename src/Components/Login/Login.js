@@ -71,7 +71,7 @@ const Login = () => {
       await sendPasswordResetEmail(email);
       toast("Sent email");
     } else {
-      toast("please enter your email address");
+      toast.error("please enter your email address");
     }
   };
   return (
@@ -141,6 +141,10 @@ const Login = () => {
             <Link className="text-blue-600" to="/register">
               Register
             </Link>{" "}
+          </p>
+          <p>
+            Forgot password?,{" "}
+            <button onClick={resetPassword} className="text-blue-600">Reset password</button>{" "}
           </p>
           <div className="mx-auto divider">OR</div>
           <SocialLogin className="btn  btn-primary w-full max-w-xs text-white" />
