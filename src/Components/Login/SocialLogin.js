@@ -19,7 +19,7 @@ const SocialLogin = () => {
     const googleLogin = async () => {
       toast.success("Login Successful");
       // console.log(user1);
-      const url = "https://audiobee.onrender.com/login";
+      const url = "https://tools-server-production.up.railway.app/login";
       await axios
         .post(url, { email: user1?.email })
         .then((response) => {
@@ -36,7 +36,7 @@ const SocialLogin = () => {
       const email = user1?.email;
       const name = user1?.displayName;
       const role = "user";
-      const url1 = `https://audiobee.onrender.com/user/${email}`;
+      const url1 = `https://tools-server-production.up.railway.app/user/${email}`;
       await axios
         .put(url1, { name: name, email: email, role: role })
         .then((response) => {

@@ -18,7 +18,7 @@ const AddReview = () => {
     const name = user?.displayName;
     axios
       .post(
-        "https://audiobee.onrender.com/review",
+        "https://tools-server-production.up.railway.app/review",
         {
           comment: comment,
           ratting: ratting,

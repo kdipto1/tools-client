@@ -6,8 +6,8 @@ const HomeTools = () => {
   const { data: tools, isLoading } = useQuery(
     ["homeTools"],
     async () =>
-      await fetch("https://audiobee.onrender.com/tools").then((res) =>
-        res.json()
+      await fetch("https://tools-server-production.up.railway.app/tools").then(
+        (res) => res.json()
       )
   );
   if (isLoading) {

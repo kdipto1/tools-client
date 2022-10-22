@@ -34,7 +34,7 @@ const Login = () => {
       toast(error?.message || error1?.message);
     }
     if (user || user1) {
-      const url = "https://audiobee.onrender.com/login";
+      const url = "https://tools-server-production.up.railway.app/login";
       axios
         .post(url, { email: user1?.email })
         .then((response) => {
@@ -54,13 +54,14 @@ const Login = () => {
     const email = data?.email;
     const name = data?.name;
     const role = "user";
-    const url = `https://audiobee.onrender.com/user/${email}`;
+    console.log(name, email);
+    const url = `https://tools-server-production.up.railway.app/user/${email}`;
     await axios
       .put(url, { name: name, email: email, role: role })
       .then((response) => {
         const { data } = response;
         event.currentTarget.disabled = true;
-        console.log(data);
+        // console.log(event);
       })
       .catch(function (error) {
         console.log(error);

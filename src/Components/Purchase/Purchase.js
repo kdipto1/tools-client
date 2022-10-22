@@ -18,7 +18,7 @@ const Purchase = () => {
 
   useEffect(() => {
     const getTool = async () => {
-      const url = `https://audiobee.onrender.com/tools/${params.id}`;
+      const url = `https://tools-server-production.up.railway.app/tools/${params.id}`;
       try {
         const { data } = await axios.get(url, {
           headers: {
@@ -66,7 +66,7 @@ const Purchase = () => {
     // };
     await axios
       .post(
-        "https://audiobee.onrender.com/orders",
+        "https://tools-server-production.up.railway.app/orders",
         {
           orderQuantity: orderQuantity,
           name: name,
@@ -98,7 +98,7 @@ const Purchase = () => {
     console.log(quantity);
     try {
       const { data } = await axios.put(
-        `https://audiobee.onrender.com/tool/${tool?._id}`,
+        `https://tools-server-production.up.railway.app/tool/${tool?._id}`,
         {
           quantity: quantity,
         },

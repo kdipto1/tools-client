@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     isLoading,
     refetch,
   } = useQuery(["getUsers"], () =>
-    fetch("https://audiobee.onrender.com/makeAdmin", {
+    fetch("https://tools-server-production.up.railway.app/makeAdmin", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
@@ -24,7 +24,7 @@ const MakeAdmin = () => {
   }
   const makeAdmin = async (id) => {
     const role = "admin";
-    const url = `https://audiobee.onrender.com/makeAdmin/${id}`;
+    const url = `https://tools-server-production.up.railway.app/makeAdmin/${id}`;
     try {
       const { data } = await axios.post(
         url,

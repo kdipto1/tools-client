@@ -14,7 +14,7 @@ const ManageOrder = () => {
   } = useQuery(
     ["allOrder"],
     async () =>
-      await fetch("https://audiobee.onrender.com/orders", {
+      await fetch("https://tools-server-production.up.railway.app/orders", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
@@ -31,7 +31,7 @@ const ManageOrder = () => {
     const shipping = "shipped";
     try {
       const { data } = await axios.put(
-        `https://audiobee.onrender.com/orders/${id}`,
+        `https://tools-server-production.up.railway.app/orders/${id}`,
         {
           shipping: shipping,
         },
