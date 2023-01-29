@@ -12,14 +12,11 @@ const ManageProducts = () => {
   } = useQuery(
     ["manageProducts"],
     async () =>
-      await fetch(
-        "https://tools-server-production.up.railway.app/manageTools",
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        }
-      ).then((res) => res.json())
+      await fetch("https://audiobee.onrender.com/manageTools", {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }).then((res) => res.json())
   );
   if (isLoading) {
     return (
@@ -29,7 +26,7 @@ const ManageProducts = () => {
     );
   }
   const handleProductDelete = async (id) => {
-    const url = `https://tools-server-production.up.railway.app/tools/${id}`;
+    const url = `https://audiobee.onrender.com/tools/${id}`;
     try {
       const { data } = await axios.delete(url, {
         headers: {

@@ -6,8 +6,8 @@ const Blogs = () => {
   const { data: blogs, isLoading } = useQuery(
     ["blogs"],
     async () =>
-      await fetch("https://tools-server-production.up.railway.app/blogs").then(
-        (res) => res.json()
+      await fetch("https://audiobee.onrender.com/blogs").then((res) =>
+        res.json()
       )
   );
   if (isLoading) {

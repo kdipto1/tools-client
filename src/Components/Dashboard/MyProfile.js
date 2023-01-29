@@ -15,14 +15,11 @@ const MyProfile = () => {
   } = useQuery(
     ["userProfileAudioBee"],
     async () =>
-      await fetch(
-        `https://tools-server-production.up.railway.app/users?email=${user?.email}`,
-        {
-          headers: {
-            authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-          },
-        }
-      ).then((res) => res.json())
+      await fetch(`https://audiobee.onrender.com/users?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }).then((res) => res.json())
   );
   if (isLoading || loading) {
     return (
@@ -38,7 +35,7 @@ const MyProfile = () => {
     const education = event?.target.education.value;
     const phone = event?.target.phone.value;
     const linkedin = event?.target.linkedin.value;
-    const url = `https://tools-server-production.up.railway.app/users/${profile._id}`;
+    const url = `https://audiobee.onrender.com/users/${profile._id}`;
     await axios
       .put(
         url,

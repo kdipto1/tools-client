@@ -9,8 +9,8 @@ const ReviewScroll = () => {
   const { data: reviews, isLoading } = useQuery(
     ["homeReviews"],
     async () =>
-      await fetch("https://tools-server-production.up.railway.app/review").then(
-        (res) => res.json()
+      await fetch("https://audiobee.onrender.com/review").then((res) =>
+        res.json()
       )
   );
   if (isLoading) {
